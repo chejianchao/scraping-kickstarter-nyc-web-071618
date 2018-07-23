@@ -14,7 +14,6 @@ def create_project_hash
   kick = Nokogiri.HTML(html)
   projects = {};
   kick.css("li.project.grid_4").each {|project|
-    binding.pry
     title = project.css("h2.bbcard_name strong a").text
     projects[title.to_sym] = {
        :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
